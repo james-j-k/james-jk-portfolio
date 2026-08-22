@@ -14,9 +14,37 @@ type CaseStudy = {
   ieeeUrl?: string;
   repoUrl?: string;
   internalOnly?: boolean;
+  featured?: boolean;
+  inDevelopment?: boolean;
 };
 
 const CASE_STUDIES: CaseStudy[] = [
+  {
+    tag: "Independent Product · RBAC Platform",
+    title: "Jubilee OS — Delivery & Field-Ops Platform",
+    period: "In Development",
+    featured: true,
+    inDevelopment: true,
+    problem:
+      "A local LPG distributor's office staff were hand-copying delivery confirmation codes from paper into logbooks — illegible handwriting caused mismatched entries and delivery disputes across a 15,000+ customer base.",
+    approach: [
+      "Android app (Kotlin, Jetpack Compose) lets delivery executives look up a customer by number and see only what they need — name, phone, active booking status — sourced from office-uploaded Excel registries.",
+      "A two-tier RBAC data model keeps sensitive customer PII (KYC, ration card, Aadhaar) structurally separate from field-facing data, enforced by Firestore security rules rather than hidden in the UI.",
+      "TypeScript Firebase Cloud Functions handle server-side Excel ingestion and RBAC-gated batch writes, with shared TypeScript types keeping the Cloud Functions backend and React dashboard contract-safe end to end.",
+      "An offline-first submission queue lets delivery staff save confirmation codes without signal, auto-syncing with idempotent writes once connectivity returns — plus a white-label, multi-tenant template (one Firebase project per client) so the platform can be resold to other businesses.",
+    ],
+    stack: [
+      "Kotlin",
+      "Jetpack Compose",
+      "TypeScript",
+      "React",
+      "Firebase Cloud Functions",
+      "Firestore",
+      "GitHub Actions",
+    ],
+    impact:
+      "Architecture and RBAC data model finalized; actively in development.",
+  },
   {
     tag: "IEEE Paper · INCIP 2025",
     title: "Real-Time Stock Price Prediction & Visualization",
@@ -80,7 +108,18 @@ export default function Projects() {
         <div className="mt-16 flex flex-col gap-6">
           {CASE_STUDIES.map((project, i) => (
             <Reveal key={project.title} delay={i * 0.08}>
-              <article className="group relative overflow-hidden rounded-3xl border border-border bg-background-elevated/60 p-8 transition-colors duration-300 hover:border-border-strong md:p-10">
+              <article
+                className={`group relative overflow-hidden rounded-3xl border bg-background-elevated/60 p-8 transition-colors duration-300 md:p-10 ${
+                  project.featured
+                    ? "border-accent/40 hover:border-accent/70"
+                    : "border-border hover:border-border-strong"
+                }`}
+              >
+                {project.featured && (
+                  <span className="absolute right-6 top-6 rounded-full bg-gradient-to-r from-accent to-accent-2 px-3 py-1 font-mono text-[10px] font-semibold uppercase tracking-widest text-background">
+                    Featured
+                  </span>
+                )}
                 <div
                   className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                   style={{
@@ -97,6 +136,12 @@ export default function Projects() {
                       <span className="font-mono text-[11px] text-foreground-subtle">
                         {project.period}
                       </span>
+                      {project.inDevelopment && (
+                        <span className="inline-flex items-center gap-1.5 rounded-full border border-accent-2/40 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-widest text-accent-2">
+                          <span className="h-1.5 w-1.5 rounded-full bg-accent-2 animate-pulse" />
+                          In Development
+                        </span>
+                      )}
                     </div>
                     <h3 className="font-display mt-3 text-2xl font-medium text-foreground md:text-3xl">
                       {project.title}
@@ -130,6 +175,10 @@ export default function Projects() {
                       ) : project.internalOnly ? (
                         <span className="text-sm text-foreground-subtle">
                           Internal Fission Labs project — not publicly available
+                        </span>
+                      ) : project.inDevelopment ? (
+                        <span className="text-sm text-foreground-subtle">
+                          Case study will update as it ships
                         </span>
                       ) : (
                         <span className="text-sm text-foreground-subtle">
