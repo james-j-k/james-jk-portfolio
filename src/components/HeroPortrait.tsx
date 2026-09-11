@@ -36,6 +36,7 @@ export default function HeroPortrait() {
   const glowX = useTransform(springX, (v) => `${v * 100}%`);
   const glowY = useTransform(springY, (v) => `${v * 100}%`);
   const spotlight = useMotionTemplate`radial-gradient(220px circle at ${glowX} ${glowY}, rgba(255,255,255,0.4), transparent 70%)`;
+  const colorReveal = useMotionTemplate`circle(22% at ${glowX} ${glowY})`;
 
   const handleMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const el = tiltRef.current;
@@ -87,6 +88,20 @@ export default function HeroPortrait() {
               className="object-cover grayscale contrast-150 brightness-75"
             />
             <div className="pointer-events-none absolute inset-0 bg-foreground mix-blend-multiply opacity-20" />
+            <motion.div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              style={{ clipPath: colorReveal }}
+            >
+              <Image
+                src="/images/hero-portrait.png"
+                alt=""
+                aria-hidden
+                fill
+                sizes="(min-width: 1024px) 400px, 360px"
+                className="object-cover"
+              />
+            </motion.div>
             <motion.div
               aria-hidden
               className="pointer-events-none absolute inset-0 opacity-0 mix-blend-soft-light transition-opacity duration-300 group-hover:opacity-100"

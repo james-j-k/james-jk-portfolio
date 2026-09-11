@@ -73,7 +73,7 @@ export default function Experience() {
           <span className="inline-block bg-foreground px-3 py-1 font-mono text-xs font-bold uppercase tracking-widest text-background">
             Experience
           </span>
-          <h2 className="font-display mt-4 text-5xl font-black uppercase leading-none tracking-tighter text-foreground md:text-7xl">
+          <h2 className="font-display mt-4 text-4xl font-black uppercase leading-none tracking-tighter text-foreground sm:text-5xl md:text-7xl">
             Where James has <span className="block headline-stroke">been building.</span>
           </h2>
         </Reveal>
@@ -82,20 +82,21 @@ export default function Experience() {
           <div className="absolute left-0 top-0 h-full w-2 bg-foreground/15" />
           <div className="timeline-line-fill absolute left-0 top-0 h-full w-2 origin-top bg-foreground" />
 
-          <div className="flex w-full flex-col gap-16 pl-8 md:pl-16">
+          <div className="flex w-full flex-col gap-16 pl-14 sm:pl-16 md:pl-16">
             {EXPERIENCE.map((job, i) => (
               <Reveal key={job.company} delay={i * 0.1} className="relative">
-                <div className="brutalist-border absolute -left-[3.5rem] top-10 flex h-8 w-8 items-center justify-center bg-foreground text-background md:-left-[5.5rem] md:h-10 md:w-10">
-                  <job.icon size={18} />
+                <div className="brutalist-border absolute -left-10 top-10 flex h-7 w-7 items-center justify-center bg-foreground text-background sm:-left-[5.5rem] sm:h-10 sm:w-10 md:-left-[5.5rem] md:h-10 md:w-10">
+                  <job.icon size={16} className="sm:hidden" />
+                  <job.icon size={18} className="hidden sm:block" />
                 </div>
 
-                <article className="relative brutalist-border card-shadow bg-background p-8 md:p-12">
+                <article className="relative brutalist-border card-shadow bg-background p-6 sm:p-8 md:p-12">
                   <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
                     <div className="max-w-xl">
-                      <h3 className="font-display text-3xl font-black uppercase tracking-tight text-foreground">
+                      <h3 className="font-display text-2xl font-black uppercase tracking-tight text-foreground sm:text-3xl">
                         {job.role}
                       </h3>
-                      <p className="mt-2 font-mono text-xl font-bold text-foreground">
+                      <p className="mt-2 font-mono text-lg font-bold text-foreground sm:text-xl">
                         {job.company}
                       </p>
                     </div>
@@ -128,12 +129,16 @@ export default function Experience() {
         <Reveal delay={0.1} className="mt-24 flex justify-center">
           <a
             href="#work"
-            className="group flex items-center gap-6 brutalist-border bg-foreground px-12 py-6 font-display text-2xl font-black uppercase text-background transition-colors hover:bg-background hover:text-foreground"
+            className="btn-shadow group flex items-center gap-3 brutalist-border bg-foreground px-6 py-4 text-center font-display text-base font-black uppercase text-background transition-colors hover:bg-background hover:text-foreground sm:gap-6 sm:px-12 sm:py-6 sm:text-2xl"
           >
             Next: View Work
             <ArrowRight
+              size={20}
+              className="shrink-0 transition-transform group-hover:translate-x-2 sm:hidden"
+            />
+            <ArrowRight
               size={32}
-              className="transition-transform group-hover:translate-x-2"
+              className="hidden shrink-0 transition-transform group-hover:translate-x-2 sm:block"
             />
           </a>
         </Reveal>

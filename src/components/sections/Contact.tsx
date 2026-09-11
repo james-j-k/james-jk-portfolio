@@ -29,20 +29,23 @@ export default function Contact() {
             <span className="inline-block bg-foreground px-3 py-1 font-mono text-xs font-bold uppercase tracking-widest text-background">
               Contact
             </span>
-            <h2 className="font-display mt-6 max-w-4xl text-5xl font-black uppercase leading-[0.9] tracking-tighter text-foreground sm:text-7xl md:text-8xl lg:text-9xl">
+            <h2 className="font-display mt-6 max-w-4xl text-4xl font-black uppercase leading-[0.95] tracking-tighter text-foreground sm:text-7xl md:text-8xl lg:text-9xl">
               <span className="block">Have something</span>
               <span className="block headline-stroke">worth building?</span>
               <span className="block">Let&apos;s talk.</span>
             </h2>
           </Reveal>
 
-          <Reveal delay={0.15} className="mt-16 max-w-2xl">
+          <Reveal delay={0.15} className="mt-12 max-w-2xl sm:mt-16">
             <a
               href="mailto:jamesjk1403@gmail.com"
-              className="btn-shadow flex w-full items-center justify-between brutalist-border bg-foreground px-8 py-8 font-display text-2xl font-black uppercase text-background md:px-10 md:py-10 md:text-4xl"
+              className="btn-shadow flex w-full items-center justify-between gap-3 brutalist-border bg-foreground px-5 py-6 font-display text-base font-black uppercase text-background sm:px-8 sm:py-8 sm:text-2xl md:px-10 md:py-10 md:text-4xl"
             >
-              <span>jamesjk1403@gmail.com</span>
-              <ArrowUpRight size={44} />
+              <span className="break-all sm:break-normal">
+                jamesjk1403@gmail.com
+              </span>
+              <ArrowUpRight size={24} className="shrink-0 sm:hidden" />
+              <ArrowUpRight size={44} className="hidden shrink-0 sm:block" />
             </a>
           </Reveal>
 

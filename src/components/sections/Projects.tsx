@@ -103,7 +103,7 @@ export default function Projects() {
           <span className="inline-block bg-foreground px-3 py-1 font-mono text-xs font-bold uppercase tracking-widest text-background">
             Selected Work
           </span>
-          <h2 className="font-display mt-4 text-5xl font-black uppercase leading-[0.9] tracking-tighter text-foreground md:text-7xl">
+          <h2 className="font-display mt-4 text-4xl font-black uppercase leading-[0.95] tracking-tighter text-foreground sm:text-5xl md:text-7xl">
             Case studies,
             <br />
             not bullet points.
@@ -113,7 +113,7 @@ export default function Projects() {
         <div className="flex flex-col gap-20">
           {CASE_STUDIES.map((project, i) => (
             <Reveal key={project.title} delay={i * 0.08}>
-              <article className="relative brutalist-border feature-shadow bg-background p-8 md:p-12">
+              <article className="relative brutalist-border feature-shadow bg-background p-5 sm:p-8 md:p-12">
                 {project.featured && (
                   <span className="absolute -right-4 -top-4 z-10 rotate-3 brutalist-border bg-foreground px-4 py-2 font-display text-sm font-black uppercase text-background">
                     Featured
@@ -130,11 +130,11 @@ export default function Projects() {
                     </div>
                   )}
                 </div>
-                <h3 className="font-display mb-6 text-3xl font-black uppercase tracking-tighter text-foreground md:text-4xl">
+                <h3 className="font-display mb-6 text-2xl font-black uppercase tracking-tighter text-foreground sm:text-3xl md:text-4xl">
                   {project.title}
                 </h3>
 
-                <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr]">
+                <div className="grid gap-8 sm:gap-12 lg:grid-cols-[1.5fr_1fr]">
                   <div className="space-y-8">
                     <div className="border-l-4 border-foreground pl-6">
                       <p className="text-lg font-bold leading-tight text-foreground">

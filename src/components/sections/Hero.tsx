@@ -51,7 +51,7 @@ export default function Hero() {
 
           <h1
             ref={headlineRef}
-            className="font-display text-6xl font-black uppercase leading-[0.9] tracking-tighter text-foreground sm:text-7xl md:text-8xl lg:text-7xl xl:text-9xl"
+            className="font-display text-5xl font-black uppercase leading-[0.9] tracking-tighter text-foreground sm:text-7xl md:text-8xl lg:text-7xl xl:text-9xl"
           >
             {HEADLINE.map((line, i) => (
               <span key={i} className="block overflow-hidden">
@@ -72,7 +72,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.9 }}
             className="mt-12 max-w-xl brutalist-border-l border-l-[3px] border-foreground pl-6"
           >
-            <p className="text-xl font-bold leading-tight text-foreground">
+            <p className="text-lg font-bold leading-tight text-foreground sm:text-xl">
               I design, prompt, and ship backend systems, RAG pipelines, and
               full-stack apps — using Claude and Codex as real engineering
               partners. Currently building at Fission Labs.
@@ -83,18 +83,19 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.05 }}
-            className="mt-12 flex flex-wrap items-center gap-6"
+            className="mt-10 flex flex-wrap items-center gap-4 sm:mt-12 sm:gap-6"
           >
             <a
               href="#work"
-              className="btn-shadow inline-flex items-center gap-3 brutalist-border bg-foreground px-10 py-5 font-display text-lg font-black uppercase text-background"
+              className="btn-shadow inline-flex items-center gap-2 brutalist-border bg-foreground px-6 py-4 font-display text-base font-black uppercase text-background sm:gap-3 sm:px-10 sm:py-5 sm:text-lg"
             >
               View my work
-              <ArrowUpRight size={22} />
+              <ArrowUpRight size={18} className="shrink-0 sm:hidden" />
+              <ArrowUpRight size={22} className="hidden shrink-0 sm:block" />
             </a>
             <a
               href="#contact"
-              className="btn-shadow inline-flex items-center gap-3 brutalist-border bg-background px-10 py-5 font-display text-lg font-black uppercase text-foreground"
+              className="btn-shadow inline-flex items-center gap-3 brutalist-border bg-background px-6 py-4 font-display text-base font-black uppercase text-foreground sm:px-10 sm:py-5 sm:text-lg"
             >
               Get in touch
             </a>

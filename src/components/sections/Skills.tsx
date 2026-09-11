@@ -72,18 +72,18 @@ export default function Skills() {
           <span className="inline-block bg-foreground px-3 py-1 font-mono text-xs font-bold uppercase tracking-widest text-background">
             Skills & Certifications
           </span>
-          <h2 className="font-display mt-4 text-5xl font-black uppercase leading-none tracking-tighter text-foreground md:text-7xl">
+          <h2 className="font-display mt-4 text-4xl font-black uppercase leading-tight tracking-tighter text-foreground sm:text-5xl sm:leading-none md:text-7xl">
             The toolkit behind the work.
           </h2>
         </Reveal>
       </div>
 
-      <div className="mt-14 overflow-hidden border-y-8 border-foreground bg-foreground py-8">
-        <div className="flex w-max animate-marquee gap-12">
+      <div className="mt-14 overflow-hidden border-y-4 border-foreground bg-foreground py-5 sm:border-y-8 sm:py-8">
+        <div className="flex w-max animate-marquee gap-8 sm:gap-12">
           {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
             <span
               key={`${item}-${i}`}
-              className="font-display whitespace-nowrap text-7xl font-black uppercase text-background md:text-9xl"
+              className="font-display whitespace-nowrap text-4xl font-black uppercase text-background sm:text-7xl md:text-9xl"
             >
               {item}
             </span>
@@ -95,7 +95,7 @@ export default function Skills() {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {SKILL_GROUPS.map((group, i) => (
             <Reveal key={group.title} delay={i * 0.08}>
-              <div className="brutalist-border card-shadow h-full bg-background p-8 transition-transform duration-75 hover:-translate-x-1 hover:-translate-y-1">
+              <div className="brutalist-border card-shadow h-full bg-background p-6 transition-transform duration-75 hover:-translate-x-1 hover:-translate-y-1 sm:p-8">
                 <h3 className="brutalist-border-b mb-6 pb-2 font-display text-xl font-black uppercase text-foreground">
                   {group.title}
                 </h3>
@@ -122,7 +122,7 @@ export default function Skills() {
             {CERTIFICATIONS.map((cert, i) => (
               <div
                 key={cert.name}
-                className={`grid grid-cols-1 gap-2 p-6 hover:bg-background-elevated md:grid-cols-12 md:gap-0 ${
+                className={`grid grid-cols-1 gap-2 p-4 hover:bg-background-elevated sm:p-6 md:grid-cols-12 md:gap-0 ${
                   i < CERTIFICATIONS.length - 1 ? "brutalist-border-b" : ""
                 }`}
               >

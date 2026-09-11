@@ -52,13 +52,13 @@ export default function About() {
           <div className="hidden w-1 self-stretch bg-foreground lg:block" />
 
           <Reveal delay={0.15} className="lg:pl-16">
-            <div className="grid grid-cols-2 gap-6 lg:grid-cols-1">
+            <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-1">
               {STATS.map((stat) => (
                 <div
                   key={stat.label}
-                  className="brutalist-border card-shadow bg-background p-6"
+                  className="brutalist-border card-shadow bg-background p-4 sm:p-6"
                 >
-                  <span className="font-display block text-5xl font-black leading-none text-foreground">
+                  <span className="font-display block text-4xl font-black leading-none text-foreground sm:text-5xl">
                     {stat.value}
                   </span>
                   <span className="mt-2 block font-mono text-xs font-bold uppercase tracking-widest text-foreground">
