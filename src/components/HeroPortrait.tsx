@@ -11,25 +11,30 @@ import {
   useTransform,
 } from "framer-motion";
 
-const STAMP_LIFETIME_MS = 1000;
-const MIN_STAMP_DISTANCE = 12;
+const STAMP_LIFETIME_MS = 1800;
+const MIN_STAMP_DISTANCE = 6;
+const BRUSH_RADIUS = 34;
 
-type Dab = { dx: number; dy: number; rx: number; ry: number; rot: number };
-type Stamp = { x: number; y: number; t: number; dabs: Dab[] };
+type Stamp = { x: number; y: number; t: number };
 
-function makeDabs(): Dab[] {
-  const count = 5 + Math.floor(Math.random() * 3);
-  return Array.from({ length: count }, () => {
-    const angle = Math.random() * Math.PI * 2;
-    const dist = Math.random() * 16;
-    return {
-      dx: Math.cos(angle) * dist,
-      dy: Math.sin(angle) * dist,
-      rx: 14 + Math.random() * 16,
-      ry: 14 + Math.random() * 16,
-      rot: Math.random() * Math.PI,
-    };
-  });
+/** Mirrors CSS `object-fit: cover`: returns the source rect to sample so the
+ * image fills destW x destH without distortion, cropped and centered. */
+function coverSourceRect(
+  naturalW: number,
+  naturalH: number,
+  destW: number,
+  destH: number
+) {
+  const srcRatio = naturalW / naturalH;
+  const destRatio = destW / destH;
+  if (srcRatio > destRatio) {
+    const sh = naturalH;
+    const sw = sh * destRatio;
+    return { sx: (naturalW - sw) / 2, sy: 0, sw, sh };
+  }
+  const sw = naturalW;
+  const sh = sw / destRatio;
+  return { sx: 0, sy: (naturalH - sh) / 2, sw, sh };
 }
 
 export default function HeroPortrait() {
@@ -98,37 +103,52 @@ export default function HeroPortrait() {
     const ro = new ResizeObserver(resize);
     ro.observe(container);
 
+    const alphaOf = (s: Stamp, now: number) => {
+      const t = (now - s.t) / STAMP_LIFETIME_MS;
+      return Math.max(0, 1 - t * t);
+    };
+
     const draw = () => {
       const now = performance.now();
       stamps = stamps.filter((s) => now - s.t < STAMP_LIFETIME_MS);
 
       maskCtx.clearRect(0, 0, width, height);
-      for (const s of stamps) {
-        const age = now - s.t;
-        const t = age / STAMP_LIFETIME_MS;
-        const alpha = Math.max(0, 1 - t * t);
-        maskCtx.globalAlpha = alpha;
-        maskCtx.fillStyle = "#fff";
-        for (const d of s.dabs) {
+      maskCtx.fillStyle = "#fff";
+      maskCtx.strokeStyle = "#fff";
+      maskCtx.lineCap = "round";
+      maskCtx.lineJoin = "round";
+      maskCtx.lineWidth = BRUSH_RADIUS * 2;
+
+      for (let i = 0; i < stamps.length; i++) {
+        const s = stamps[i];
+        const alpha = alphaOf(s, now);
+
+        if (i > 0) {
+          const prev = stamps[i - 1];
+          maskCtx.globalAlpha = Math.min(alpha, alphaOf(prev, now));
           maskCtx.beginPath();
-          maskCtx.ellipse(
-            s.x + d.dx,
-            s.y + d.dy,
-            d.rx,
-            d.ry,
-            d.rot,
-            0,
-            Math.PI * 2
-          );
-          maskCtx.fill();
+          maskCtx.moveTo(prev.x, prev.y);
+          maskCtx.lineTo(s.x, s.y);
+          maskCtx.stroke();
         }
+
+        maskCtx.globalAlpha = alpha;
+        maskCtx.beginPath();
+        maskCtx.arc(s.x, s.y, BRUSH_RADIUS, 0, Math.PI * 2);
+        maskCtx.fill();
       }
       maskCtx.globalAlpha = 1;
 
       ctx.clearRect(0, 0, width, height);
-      if (stamps.length && colorImg.complete) {
+      if (stamps.length && colorImg.complete && colorImg.naturalWidth) {
+        const { sx, sy, sw, sh } = coverSourceRect(
+          colorImg.naturalWidth,
+          colorImg.naturalHeight,
+          width,
+          height
+        );
         ctx.globalCompositeOperation = "source-over";
-        ctx.drawImage(colorImg, 0, 0, width, height);
+        ctx.drawImage(colorImg, sx, sy, sw, sh, 0, 0, width, height);
         ctx.globalCompositeOperation = "destination-in";
         ctx.drawImage(maskCanvas, 0, 0, width, height);
         ctx.globalCompositeOperation = "source-over";
@@ -146,7 +166,7 @@ export default function HeroPortrait() {
       if (last && Math.hypot(x - last.x, y - last.y) < MIN_STAMP_DISTANCE) {
         return;
       }
-      stamps.push({ x, y, t: performance.now(), dabs: makeDabs() });
+      stamps.push({ x, y, t: performance.now() });
       if (stamps.length > 150) stamps.shift();
       if (!running) {
         running = true;
