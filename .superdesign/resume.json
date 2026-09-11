@@ -1,0 +1,255 @@
+{
+  "schemaVersion": 1,
+  "targets": {
+    "hero-section": {
+      "targetKind": "existing-ui",
+      "projectId": "ec8173d5-ede9-48a8-b51c-aa9dcccf35ae",
+      "baselineDraftId": "28c67eb1-2223-4916-89af-d054cb14dd1f",
+      "activeDraftId": "29c5db71-2f9d-4bbe-9c7c-5eb93fac1a9f",
+      "designSystemPath": ".superdesign/design-system.md",
+      "contextFiles": [
+        ".superdesign/design-system.md",
+        "src/app/layout.tsx",
+        "src/app/globals.css",
+        "src/components/Navbar.tsx",
+        "src/components/sections/Hero.tsx",
+        "src/components/GradientBackground.tsx",
+        "src/components/HeroPortrait.tsx"
+      ],
+      "fingerprints": {
+        ".superdesign/design-system.md": "d2591e66483560111ce0a6d66b0be472fe1a3a7689b484536d740122aa468f41",
+        "src/app/layout.tsx": "d736f58fdcdaa43af014e1813437c2cfa54e99dc91f69cefd814c3b8e9a5308a",
+        "src/app/globals.css": "bcfc7a5d0ee21a8e742c4f9c3fa138f8c2ce1a87b4c10e1cde290f4062aaadb0",
+        "src/components/Navbar.tsx": "8ac4abcde27d5f918aafe274e84f58fb39391dc6f34e388635bed35e31ac2cc1",
+        "src/components/sections/Hero.tsx": "c6a86060e673753bb4f66094e62ea1c20cb4a4d8c2a5b3e1939b29675902521f",
+        "src/components/GradientBackground.tsx": "65ff0b7e1e6798fc822bc61d53893321945b6e4eef9bb51b43fa2a872fd9464c",
+        "src/components/HeroPortrait.tsx": "ae299938ce47ff2846c337b2a759c76da31a9d92ba9fec73dc26c7106e7a6ca5"
+      },
+      "drafts": {
+        "28c67eb1-2223-4916-89af-d054cb14dd1f": {
+          "title": "Current Hero",
+          "visualDirection": "pixel-perfect reproduction (baseline, unchanged from live site)",
+          "currentVersion": 1
+        },
+        "29c5db71-2f9d-4bbe-9c7c-5eb93fac1a9f": {
+          "title": "Brutalist Graphic Portfolio Hero",
+          "visualDirection": "stark black/white brutalist, hard borders, sharp corners, no gradients",
+          "parentDraftId": "28c67eb1-2223-4916-89af-d054cb14dd1f",
+          "currentVersion": 1
+        },
+        "00d306f2-af53-4481-a826-a0d84251feb1": {
+          "title": "James J Koduppanapolackal - Editorial Portfolio",
+          "visualDirection": "warm off-white editorial, serif display, amber/terracotta accent",
+          "parentDraftId": "28c67eb1-2223-4916-89af-d054cb14dd1f",
+          "currentVersion": 1
+        }
+      },
+      "updatedAt": "2026-09-11T19:52:00Z"
+    },
+    "about-section": {
+      "targetKind": "new-ui",
+      "projectId": "ec8173d5-ede9-48a8-b51c-aa9dcccf35ae",
+      "sourceTarget": "hero-section",
+      "sourceDraftId": "29c5db71-2f9d-4bbe-9c7c-5eb93fac1a9f",
+      "activeDraftId": "09050ec8-7f52-40f7-a28e-ad9dd2f117bf",
+      "designSystemPath": ".superdesign/design-system.md",
+      "contextFiles": [
+        ".superdesign/design-system.md",
+        "src/app/globals.css",
+        "src/components/Reveal.tsx",
+        "src/components/MagneticButton.tsx",
+        "src/components/icons/BrandIcons.tsx",
+        "src/components/sections/About.tsx",
+        "src/components/sections/Experience.tsx",
+        "src/components/sections/Projects.tsx",
+        "src/components/sections/Skills.tsx",
+        "src/components/sections/Contact.tsx"
+      ],
+      "fingerprints": {
+        ".superdesign/design-system.md": "d2591e66483560111ce0a6d66b0be472fe1a3a7689b484536d740122aa468f41",
+        "src/app/globals.css": "bcfc7a5d0ee21a8e742c4f9c3fa138f8c2ce1a87b4c10e1cde290f4062aaadb0",
+        "src/components/Reveal.tsx": "45cd56202a98d9168efafb4359553411b5d632b2d28bd2a8de1c03bff02a56fa",
+        "src/components/MagneticButton.tsx": "b662a3bef8ce897bb1de9bf4a9c20695e86e62fc4f148928667ef1467857eea8",
+        "src/components/icons/BrandIcons.tsx": "568792b8c6eefef43a00ae2753d67115189a55ec80ef002ae1138d8a714d5093",
+        "src/components/sections/About.tsx": "21bbb2a21bf29aea4028fc658c5ede1fff43671c43616d1ba5f257e01fdf4ad5",
+        "src/components/sections/Experience.tsx": "a2e3b2356c1b6242c847be70b87475de8313234e2712cf699a1e8a798a9f8977",
+        "src/components/sections/Projects.tsx": "75d9baaf23ed78fc5f9790ff911333b272281086e1d6e432bb8a994f54841347",
+        "src/components/sections/Skills.tsx": "a5c8ab3526258b87bd85db58ec552c86653088abdc989d95905d39db377c24b3",
+        "src/components/sections/Contact.tsx": "fac6d16996279440c39f1d11ec7c3426f443e9b7b06bddc6a6899ab8e8f53d40"
+      },
+      "drafts": {
+        "09050ec8-7f52-40f7-a28e-ad9dd2f117bf": {
+          "title": "About",
+          "visualDirection": "brutalist (matches hero-section active draft)",
+          "parentDraftId": "29c5db71-2f9d-4bbe-9c7c-5eb93fac1a9f",
+          "currentVersion": 1
+        }
+      },
+      "updatedAt": "2026-09-11T20:05:00Z"
+    },
+    "experience-section": {
+      "targetKind": "new-ui",
+      "projectId": "ec8173d5-ede9-48a8-b51c-aa9dcccf35ae",
+      "sourceTarget": "hero-section",
+      "sourceDraftId": "29c5db71-2f9d-4bbe-9c7c-5eb93fac1a9f",
+      "activeDraftId": "b23c35f5-d15f-4ef1-8a20-289c3759bdaa",
+      "designSystemPath": ".superdesign/design-system.md",
+      "contextFiles": [
+        ".superdesign/design-system.md",
+        "src/app/globals.css",
+        "src/components/Reveal.tsx",
+        "src/components/MagneticButton.tsx",
+        "src/components/icons/BrandIcons.tsx",
+        "src/components/sections/About.tsx",
+        "src/components/sections/Experience.tsx",
+        "src/components/sections/Projects.tsx",
+        "src/components/sections/Skills.tsx",
+        "src/components/sections/Contact.tsx"
+      ],
+      "fingerprints": {
+        ".superdesign/design-system.md": "d2591e66483560111ce0a6d66b0be472fe1a3a7689b484536d740122aa468f41",
+        "src/app/globals.css": "bcfc7a5d0ee21a8e742c4f9c3fa138f8c2ce1a87b4c10e1cde290f4062aaadb0",
+        "src/components/Reveal.tsx": "45cd56202a98d9168efafb4359553411b5d632b2d28bd2a8de1c03bff02a56fa",
+        "src/components/MagneticButton.tsx": "b662a3bef8ce897bb1de9bf4a9c20695e86e62fc4f148928667ef1467857eea8",
+        "src/components/icons/BrandIcons.tsx": "568792b8c6eefef43a00ae2753d67115189a55ec80ef002ae1138d8a714d5093",
+        "src/components/sections/About.tsx": "21bbb2a21bf29aea4028fc658c5ede1fff43671c43616d1ba5f257e01fdf4ad5",
+        "src/components/sections/Experience.tsx": "a2e3b2356c1b6242c847be70b87475de8313234e2712cf699a1e8a798a9f8977",
+        "src/components/sections/Projects.tsx": "75d9baaf23ed78fc5f9790ff911333b272281086e1d6e432bb8a994f54841347",
+        "src/components/sections/Skills.tsx": "a5c8ab3526258b87bd85db58ec552c86653088abdc989d95905d39db377c24b3",
+        "src/components/sections/Contact.tsx": "fac6d16996279440c39f1d11ec7c3426f443e9b7b06bddc6a6899ab8e8f53d40"
+      },
+      "drafts": {
+        "b23c35f5-d15f-4ef1-8a20-289c3759bdaa": {
+          "title": "Experience",
+          "visualDirection": "brutalist (matches hero-section active draft)",
+          "parentDraftId": "29c5db71-2f9d-4bbe-9c7c-5eb93fac1a9f",
+          "currentVersion": 1
+        }
+      },
+      "updatedAt": "2026-09-11T20:05:00Z"
+    },
+    "projects-section": {
+      "targetKind": "new-ui",
+      "projectId": "ec8173d5-ede9-48a8-b51c-aa9dcccf35ae",
+      "sourceTarget": "hero-section",
+      "sourceDraftId": "29c5db71-2f9d-4bbe-9c7c-5eb93fac1a9f",
+      "activeDraftId": "f110f14c-cc74-4d99-a007-7ffa3a722ed4",
+      "designSystemPath": ".superdesign/design-system.md",
+      "contextFiles": [
+        ".superdesign/design-system.md",
+        "src/app/globals.css",
+        "src/components/Reveal.tsx",
+        "src/components/MagneticButton.tsx",
+        "src/components/icons/BrandIcons.tsx",
+        "src/components/sections/About.tsx",
+        "src/components/sections/Experience.tsx",
+        "src/components/sections/Projects.tsx",
+        "src/components/sections/Skills.tsx",
+        "src/components/sections/Contact.tsx"
+      ],
+      "fingerprints": {
+        ".superdesign/design-system.md": "d2591e66483560111ce0a6d66b0be472fe1a3a7689b484536d740122aa468f41",
+        "src/app/globals.css": "bcfc7a5d0ee21a8e742c4f9c3fa138f8c2ce1a87b4c10e1cde290f4062aaadb0",
+        "src/components/Reveal.tsx": "45cd56202a98d9168efafb4359553411b5d632b2d28bd2a8de1c03bff02a56fa",
+        "src/components/MagneticButton.tsx": "b662a3bef8ce897bb1de9bf4a9c20695e86e62fc4f148928667ef1467857eea8",
+        "src/components/icons/BrandIcons.tsx": "568792b8c6eefef43a00ae2753d67115189a55ec80ef002ae1138d8a714d5093",
+        "src/components/sections/About.tsx": "21bbb2a21bf29aea4028fc658c5ede1fff43671c43616d1ba5f257e01fdf4ad5",
+        "src/components/sections/Experience.tsx": "a2e3b2356c1b6242c847be70b87475de8313234e2712cf699a1e8a798a9f8977",
+        "src/components/sections/Projects.tsx": "75d9baaf23ed78fc5f9790ff911333b272281086e1d6e432bb8a994f54841347",
+        "src/components/sections/Skills.tsx": "a5c8ab3526258b87bd85db58ec552c86653088abdc989d95905d39db377c24b3",
+        "src/components/sections/Contact.tsx": "fac6d16996279440c39f1d11ec7c3426f443e9b7b06bddc6a6899ab8e8f53d40"
+      },
+      "drafts": {
+        "f110f14c-cc74-4d99-a007-7ffa3a722ed4": {
+          "title": "Projects",
+          "visualDirection": "brutalist (matches hero-section active draft)",
+          "parentDraftId": "29c5db71-2f9d-4bbe-9c7c-5eb93fac1a9f",
+          "currentVersion": 1
+        }
+      },
+      "updatedAt": "2026-09-11T20:05:00Z"
+    },
+    "skills-section": {
+      "targetKind": "new-ui",
+      "projectId": "ec8173d5-ede9-48a8-b51c-aa9dcccf35ae",
+      "sourceTarget": "hero-section",
+      "sourceDraftId": "29c5db71-2f9d-4bbe-9c7c-5eb93fac1a9f",
+      "activeDraftId": "7fca0bef-ec6b-486b-99c4-93e2b1bcb93b",
+      "designSystemPath": ".superdesign/design-system.md",
+      "contextFiles": [
+        ".superdesign/design-system.md",
+        "src/app/globals.css",
+        "src/components/Reveal.tsx",
+        "src/components/MagneticButton.tsx",
+        "src/components/icons/BrandIcons.tsx",
+        "src/components/sections/About.tsx",
+        "src/components/sections/Experience.tsx",
+        "src/components/sections/Projects.tsx",
+        "src/components/sections/Skills.tsx",
+        "src/components/sections/Contact.tsx"
+      ],
+      "fingerprints": {
+        ".superdesign/design-system.md": "d2591e66483560111ce0a6d66b0be472fe1a3a7689b484536d740122aa468f41",
+        "src/app/globals.css": "bcfc7a5d0ee21a8e742c4f9c3fa138f8c2ce1a87b4c10e1cde290f4062aaadb0",
+        "src/components/Reveal.tsx": "45cd56202a98d9168efafb4359553411b5d632b2d28bd2a8de1c03bff02a56fa",
+        "src/components/MagneticButton.tsx": "b662a3bef8ce897bb1de9bf4a9c20695e86e62fc4f148928667ef1467857eea8",
+        "src/components/icons/BrandIcons.tsx": "568792b8c6eefef43a00ae2753d67115189a55ec80ef002ae1138d8a714d5093",
+        "src/components/sections/About.tsx": "21bbb2a21bf29aea4028fc658c5ede1fff43671c43616d1ba5f257e01fdf4ad5",
+        "src/components/sections/Experience.tsx": "a2e3b2356c1b6242c847be70b87475de8313234e2712cf699a1e8a798a9f8977",
+        "src/components/sections/Projects.tsx": "75d9baaf23ed78fc5f9790ff911333b272281086e1d6e432bb8a994f54841347",
+        "src/components/sections/Skills.tsx": "a5c8ab3526258b87bd85db58ec552c86653088abdc989d95905d39db377c24b3",
+        "src/components/sections/Contact.tsx": "fac6d16996279440c39f1d11ec7c3426f443e9b7b06bddc6a6899ab8e8f53d40"
+      },
+      "drafts": {
+        "7fca0bef-ec6b-486b-99c4-93e2b1bcb93b": {
+          "title": "Skills",
+          "visualDirection": "brutalist (matches hero-section active draft)",
+          "parentDraftId": "29c5db71-2f9d-4bbe-9c7c-5eb93fac1a9f",
+          "currentVersion": 1
+        }
+      },
+      "updatedAt": "2026-09-11T20:05:00Z"
+    },
+    "contact-section": {
+      "targetKind": "new-ui",
+      "projectId": "ec8173d5-ede9-48a8-b51c-aa9dcccf35ae",
+      "sourceTarget": "hero-section",
+      "sourceDraftId": "29c5db71-2f9d-4bbe-9c7c-5eb93fac1a9f",
+      "activeDraftId": "5a3ec76f-b32f-4b3c-a4b8-0698c268c0a8",
+      "designSystemPath": ".superdesign/design-system.md",
+      "contextFiles": [
+        ".superdesign/design-system.md",
+        "src/app/globals.css",
+        "src/components/Reveal.tsx",
+        "src/components/MagneticButton.tsx",
+        "src/components/icons/BrandIcons.tsx",
+        "src/components/sections/About.tsx",
+        "src/components/sections/Experience.tsx",
+        "src/components/sections/Projects.tsx",
+        "src/components/sections/Skills.tsx",
+        "src/components/sections/Contact.tsx"
+      ],
+      "fingerprints": {
+        ".superdesign/design-system.md": "d2591e66483560111ce0a6d66b0be472fe1a3a7689b484536d740122aa468f41",
+        "src/app/globals.css": "bcfc7a5d0ee21a8e742c4f9c3fa138f8c2ce1a87b4c10e1cde290f4062aaadb0",
+        "src/components/Reveal.tsx": "45cd56202a98d9168efafb4359553411b5d632b2d28bd2a8de1c03bff02a56fa",
+        "src/components/MagneticButton.tsx": "b662a3bef8ce897bb1de9bf4a9c20695e86e62fc4f148928667ef1467857eea8",
+        "src/components/icons/BrandIcons.tsx": "568792b8c6eefef43a00ae2753d67115189a55ec80ef002ae1138d8a714d5093",
+        "src/components/sections/About.tsx": "21bbb2a21bf29aea4028fc658c5ede1fff43671c43616d1ba5f257e01fdf4ad5",
+        "src/components/sections/Experience.tsx": "a2e3b2356c1b6242c847be70b87475de8313234e2712cf699a1e8a798a9f8977",
+        "src/components/sections/Projects.tsx": "75d9baaf23ed78fc5f9790ff911333b272281086e1d6e432bb8a994f54841347",
+        "src/components/sections/Skills.tsx": "a5c8ab3526258b87bd85db58ec552c86653088abdc989d95905d39db377c24b3",
+        "src/components/sections/Contact.tsx": "fac6d16996279440c39f1d11ec7c3426f443e9b7b06bddc6a6899ab8e8f53d40"
+      },
+      "drafts": {
+        "5a3ec76f-b32f-4b3c-a4b8-0698c268c0a8": {
+          "title": "Contact",
+          "visualDirection": "brutalist (matches hero-section active draft)",
+          "parentDraftId": "29c5db71-2f9d-4bbe-9c7c-5eb93fac1a9f",
+          "currentVersion": 1
+        }
+      },
+      "updatedAt": "2026-09-11T20:05:00Z"
+    }
+  }
+}

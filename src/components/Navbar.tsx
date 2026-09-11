@@ -13,7 +13,6 @@ const LINKS = [
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, {
@@ -23,13 +22,6 @@ export default function Navbar() {
   });
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
@@ -37,31 +29,25 @@ export default function Navbar() {
   }, [menuOpen]);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled || menuOpen
-          ? "bg-background/70 backdrop-blur-lg border-b border-border"
-          : "bg-transparent"
-      }`}
-    >
+    <header className="fixed inset-x-0 top-0 z-50 bg-background brutalist-border-b">
       <motion.div
-        className="absolute bottom-0 left-0 h-px bg-gradient-to-r from-accent to-accent-2 origin-left"
+        className="absolute bottom-0 left-0 h-1 bg-foreground origin-left"
         style={{ scaleX: progress, right: 0 }}
       />
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-10">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-10">
         <a
           href="#top"
           onClick={() => setMenuOpen(false)}
-          className="font-display text-sm font-semibold tracking-tight text-foreground"
+          className="font-display text-2xl font-black uppercase tracking-tighter text-foreground"
         >
-          James J-K<span className="text-accent">.</span>
+          James J-K.
         </a>
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="hidden items-center gap-10 md:flex">
           {LINKS.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="font-mono text-xs uppercase tracking-widest text-foreground-muted transition-colors hover:text-foreground"
+                className="font-mono text-xs font-bold uppercase tracking-tighter text-foreground hover:underline underline-offset-4 decoration-4"
               >
                 {link.label}
               </a>
@@ -70,7 +56,7 @@ export default function Navbar() {
         </ul>
         <a
           href="#contact"
-          className="hidden rounded-full border border-border-strong px-4 py-2 font-mono text-xs uppercase tracking-widest text-foreground transition-colors hover:border-accent hover:text-accent md:inline-block"
+          className="hidden brutalist-border bg-foreground px-6 py-2 font-mono text-xs font-bold uppercase tracking-widest text-background transition-colors hover:bg-background hover:text-foreground md:inline-block"
         >
           Let&apos;s talk
         </a>
@@ -93,14 +79,14 @@ export default function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden border-t border-border md:hidden"
+            className="overflow-hidden brutalist-border-t bg-background md:hidden"
           >
             {LINKS.map((link) => (
-              <li key={link.href} className="border-b border-border">
+              <li key={link.href} className="border-b border-border/20">
                 <a
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="block px-6 py-4 font-mono text-sm uppercase tracking-widest text-foreground-muted transition-colors hover:text-foreground"
+                  className="block px-6 py-4 font-mono text-sm font-bold uppercase tracking-tighter text-foreground"
                 >
                   {link.label}
                 </a>

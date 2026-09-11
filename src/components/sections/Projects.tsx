@@ -20,7 +20,7 @@ type CaseStudy = {
 
 const CASE_STUDIES: CaseStudy[] = [
   {
-    tag: "Independent Product · RBAC Platform",
+    tag: "Independent Product // RBAC Platform",
     title: "Jubilee OS — Delivery & Field-Ops Platform",
     period: "In Development",
     featured: true,
@@ -46,7 +46,7 @@ const CASE_STUDIES: CaseStudy[] = [
       "Architecture and RBAC data model finalized; actively in development.",
   },
   {
-    tag: "IEEE Paper · INCIP 2025",
+    tag: "IEEE Paper // INCIP 2025",
     title: "Real-Time Stock Price Prediction & Visualization",
     period: "Sep 2024",
     problem:
@@ -61,7 +61,7 @@ const CASE_STUDIES: CaseStudy[] = [
     ieeeUrl: "https://ieeexplore.ieee.org/document/11019476",
   },
   {
-    tag: "Patent Pending · IEEE Paper",
+    tag: "Patent Pending // IEEE Paper",
     title: "Human BlackBox",
     period: "Mar 2025",
     problem:
@@ -76,7 +76,7 @@ const CASE_STUDIES: CaseStudy[] = [
     ieeeUrl: "https://ieeexplore.ieee.org/document/11315541",
   },
   {
-    tag: "Fission Labs · Internship",
+    tag: "Fission Labs // Internship",
     title: "Finance RAG & Movie RAG",
     period: "Feb 2026 — Present",
     problem:
@@ -94,129 +94,109 @@ const CASE_STUDIES: CaseStudy[] = [
 
 export default function Projects() {
   return (
-    <section id="work" className="relative px-6 py-28 md:px-10 md:py-36">
-      <div className="mx-auto max-w-6xl">
-        <Reveal>
-          <p className="font-mono text-xs uppercase tracking-[0.25em] text-accent-2">
+    <section
+      id="work"
+      className="relative bg-grid-brutalist px-6 py-28 md:px-10 md:py-36"
+    >
+      <div className="mx-auto max-w-5xl">
+        <Reveal className="mb-16">
+          <span className="inline-block bg-foreground px-3 py-1 font-mono text-xs font-bold uppercase tracking-widest text-background">
             Selected Work
-          </p>
-          <h2 className="font-display mt-4 max-w-xl text-3xl font-medium text-foreground sm:text-4xl">
-            Case studies, not bullet points.
+          </span>
+          <h2 className="font-display mt-4 text-5xl font-black uppercase leading-[0.9] tracking-tighter text-foreground md:text-7xl">
+            Case studies,
+            <br />
+            not bullet points.
           </h2>
         </Reveal>
 
-        <div className="mt-16 flex flex-col gap-6">
+        <div className="flex flex-col gap-20">
           {CASE_STUDIES.map((project, i) => (
             <Reveal key={project.title} delay={i * 0.08}>
-              <article
-                className={`group relative overflow-hidden rounded-3xl border bg-background-elevated/60 p-8 transition-colors duration-300 md:p-10 ${
-                  project.featured
-                    ? "border-accent/40 hover:border-accent/70"
-                    : "border-border hover:border-border-strong"
-                }`}
-              >
+              <article className="relative brutalist-border feature-shadow bg-background p-8 md:p-12">
                 {project.featured && (
-                  <span className="absolute right-6 top-6 rounded-full bg-gradient-to-r from-accent to-accent-2 px-3 py-1 font-mono text-[10px] font-semibold uppercase tracking-widest text-background">
+                  <span className="absolute -right-4 -top-4 z-10 rotate-3 brutalist-border bg-foreground px-4 py-2 font-display text-sm font-black uppercase text-background">
                     Featured
                   </span>
                 )}
-                <div
-                  className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                  style={{
-                    background:
-                      "radial-gradient(600px circle at var(--x,50%) var(--y,0%), rgba(139,92,246,0.12), transparent 60%)",
-                  }}
-                />
-                <div className="relative flex flex-col gap-8 md:flex-row md:justify-between">
-                  <div className="md:max-w-md">
-                    <div className="flex flex-wrap items-center gap-3">
-                      <span className="font-mono text-[11px] uppercase tracking-widest text-accent">
-                        {project.tag}
-                      </span>
-                      <span className="font-mono text-[11px] text-foreground-subtle">
-                        {project.period}
-                      </span>
-                      {project.inDevelopment && (
-                        <span className="inline-flex items-center gap-1.5 rounded-full border border-accent-2/40 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-widest text-accent-2">
-                          <span className="h-1.5 w-1.5 rounded-full bg-accent-2 animate-pulse" />
-                          In Development
-                        </span>
-                      )}
+                <div className="mb-6 flex flex-wrap items-center gap-3">
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-foreground-muted">
+                    {project.tag}
+                  </span>
+                  {project.inDevelopment && (
+                    <div className="flex items-center gap-2 brutalist-border bg-background px-2 py-0.5 font-mono text-[9px] font-bold uppercase">
+                      <span className="h-2 w-2 animate-pulse bg-foreground" />
+                      In Development
                     </div>
-                    <h3 className="font-display mt-3 text-2xl font-medium text-foreground md:text-3xl">
-                      {project.title}
-                    </h3>
-                    <p className="mt-4 text-foreground-muted">
-                      {project.problem}
-                    </p>
+                  )}
+                </div>
+                <h3 className="font-display mb-6 text-3xl font-black uppercase tracking-tighter text-foreground md:text-4xl">
+                  {project.title}
+                </h3>
 
-                    <div className="mt-6 flex flex-wrap gap-2">
+                <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr]">
+                  <div className="space-y-8">
+                    <div className="border-l-4 border-foreground pl-6">
+                      <p className="text-lg font-bold leading-tight text-foreground">
+                        {project.problem}
+                      </p>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2">
                       {project.stack.map((tech) => (
                         <span
                           key={tech}
-                          className="rounded-full border border-border px-3 py-1 font-mono text-[11px] text-foreground-muted"
+                          className="brutalist-border px-3 py-1 font-mono text-[10px] font-bold uppercase text-foreground"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
 
-                    <div className="mt-6 flex flex-wrap gap-4">
-                      {project.ieeeUrl ? (
-                        <a
-                          href={project.ieeeUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground transition-colors hover:text-accent"
-                        >
-                          Read the paper
-                          <ArrowUpRight size={14} />
-                        </a>
-                      ) : project.internalOnly ? (
-                        <span className="text-sm text-foreground-subtle">
-                          Internal Fission Labs project — not publicly available
-                        </span>
-                      ) : project.inDevelopment ? (
-                        <span className="text-sm text-foreground-subtle">
-                          Case study will update as it ships
-                        </span>
-                      ) : (
-                        <span className="text-sm text-foreground-subtle">
-                          Paper link coming soon
-                        </span>
-                      )}
-                      {project.repoUrl && (
-                        <a
-                          href={project.repoUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground transition-colors hover:text-accent"
-                        >
-                          View code
-                          <ArrowUpRight size={14} />
-                        </a>
-                      )}
-                    </div>
+                    {project.ieeeUrl ? (
+                      <a
+                        href={project.ieeeUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase text-foreground underline decoration-2 hover:text-foreground-muted"
+                      >
+                        Read the paper
+                        <ArrowUpRight size={16} />
+                      </a>
+                    ) : project.internalOnly ? (
+                      <p className="font-mono text-xs font-bold uppercase italic text-foreground-subtle">
+                        Internal Fission Labs project — not publicly available
+                      </p>
+                    ) : (
+                      <p className="font-mono text-xs font-bold uppercase text-foreground-subtle">
+                        Case study will update as it ships
+                      </p>
+                    )}
                   </div>
 
-                  <div className="md:w-80 md:shrink-0">
-                    <p className="font-mono text-[11px] uppercase tracking-widest text-foreground-subtle">
+                  <div className="space-y-6">
+                    <h4 className="border-b-2 border-foreground pb-2 font-mono text-xs font-bold uppercase tracking-widest text-foreground">
                       Approach
-                    </p>
-                    <ul className="mt-3 flex flex-col gap-3">
+                    </h4>
+                    <ul className="space-y-4">
                       {project.approach.map((step) => (
                         <li
                           key={step}
-                          className="flex gap-3 text-sm text-foreground-muted"
+                          className="flex gap-3 text-sm font-bold text-foreground"
                         >
-                          <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-accent-2" />
+                          <span className="text-xl leading-none">→</span>
                           <span>{step}</span>
                         </li>
                       ))}
                     </ul>
-                    <p className="mt-5 rounded-xl border border-border bg-background/60 px-4 py-3 text-sm text-foreground">
-                      {project.impact}
-                    </p>
+                    <div className="brutalist-border mt-6 bg-background-elevated p-4">
+                      <p className="mb-1 font-mono text-[10px] font-bold uppercase text-foreground-muted">
+                        Impact
+                      </p>
+                      <p className="text-sm font-bold text-foreground">
+                        {project.impact}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </article>

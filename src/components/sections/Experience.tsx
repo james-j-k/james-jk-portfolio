@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { Code2, Smartphone, ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import { getGsap } from "@/lib/gsap";
 
@@ -10,6 +11,7 @@ const EXPERIENCE = [
     role: "Software Engineering Intern",
     period: "Feb 2026 — Aug 2026",
     location: "Hyderabad, Telangana · On-site",
+    icon: Code2,
     points: [
       "Built backend services and full applications using AI-assisted development tools (Claude, Codex), exploring JWT auth, FastAPI, and Redis — presented to mentors.",
       "Developed a Finance RAG and Movie RAG system using optimization techniques including FAISS, HyDE, and RRF.",
@@ -21,6 +23,7 @@ const EXPERIENCE = [
     role: "Software Engineering Intern",
     period: "Jun 2025 — Jul 2025",
     location: "Infopark, Kochi, Kerala · On-site",
+    icon: Smartphone,
     points: [
       "Developed a React Native front end, integrating Stripe for secure payment workflows.",
       "Participated in weekly client update calls, clarifying requirements and aligning expectations.",
@@ -63,55 +66,77 @@ export default function Experience() {
     <section
       id="experience"
       ref={sectionRef}
-      className="relative px-6 py-28 md:px-10 md:py-36"
+      className="relative bg-grid-brutalist px-6 py-28 md:px-10 md:py-36"
     >
-      <div className="mx-auto max-w-6xl">
-        <Reveal>
-          <p className="font-mono text-xs uppercase tracking-[0.25em] text-accent-2">
+      <div className="mx-auto max-w-5xl">
+        <Reveal className="mb-16">
+          <span className="inline-block bg-foreground px-3 py-1 font-mono text-xs font-bold uppercase tracking-widest text-background">
             Experience
-          </p>
-          <h2 className="font-display mt-4 max-w-xl text-3xl font-medium text-foreground sm:text-4xl">
-            Where I&apos;ve been building.
+          </span>
+          <h2 className="font-display mt-4 text-5xl font-black uppercase leading-none tracking-tighter text-foreground md:text-7xl">
+            Where James has <span className="block headline-stroke">been building.</span>
           </h2>
         </Reveal>
 
-        <div className="relative mt-16 pl-8 md:pl-10">
-          <div className="absolute left-0 top-2 bottom-2 w-px bg-border" />
-          <div className="timeline-line-fill absolute left-0 top-2 bottom-2 w-px origin-top bg-gradient-to-b from-accent to-accent-2" />
+        <div className="relative flex gap-10 md:gap-16">
+          <div className="absolute left-0 top-0 h-full w-2 bg-foreground/15" />
+          <div className="timeline-line-fill absolute left-0 top-0 h-full w-2 origin-top bg-foreground" />
 
-          <div className="flex flex-col gap-16">
+          <div className="flex w-full flex-col gap-16 pl-8 md:pl-16">
             {EXPERIENCE.map((job, i) => (
               <Reveal key={job.company} delay={i * 0.1} className="relative">
-                <span className="absolute -left-[2.6rem] top-1.5 h-3 w-3 rounded-full border-2 border-accent bg-background md:-left-[2.85rem]" />
-                <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-                  <h3 className="font-display text-xl font-medium text-foreground md:text-2xl">
-                    {job.role}{" "}
-                    <span className="text-foreground-muted">
-                      · {job.company}
-                    </span>
-                  </h3>
-                  <span className="font-mono text-xs uppercase tracking-widest text-foreground-subtle">
-                    {job.period}
-                  </span>
+                <div className="brutalist-border absolute -left-[3.5rem] top-10 flex h-8 w-8 items-center justify-center bg-foreground text-background md:-left-[5.5rem] md:h-10 md:w-10">
+                  <job.icon size={18} />
                 </div>
-                <p className="mt-1 text-sm text-foreground-subtle">
-                  {job.location}
-                </p>
-                <ul className="mt-4 flex max-w-2xl flex-col gap-2">
-                  {job.points.map((point) => (
-                    <li
-                      key={point}
-                      className="flex gap-3 text-foreground-muted"
-                    >
-                      <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-accent-2" />
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
+
+                <article className="relative brutalist-border card-shadow bg-background p-8 md:p-12">
+                  <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                    <div className="max-w-xl">
+                      <h3 className="font-display text-3xl font-black uppercase tracking-tight text-foreground">
+                        {job.role}
+                      </h3>
+                      <p className="mt-2 font-mono text-xl font-bold text-foreground">
+                        {job.company}
+                      </p>
+                    </div>
+                    <div className="flex flex-col items-start gap-2 md:items-end">
+                      <span className="bg-foreground px-3 py-1 font-mono text-xs font-bold uppercase tracking-tighter text-background">
+                        {job.period}
+                      </span>
+                      <span className="font-mono text-[10px] font-bold uppercase text-foreground-muted">
+                        {job.location}
+                      </span>
+                    </div>
+                  </div>
+                  <ul className="flex max-w-3xl flex-col gap-4">
+                    {job.points.map((point) => (
+                      <li
+                        key={point}
+                        className="flex items-start gap-3 text-lg font-bold leading-tight text-foreground"
+                      >
+                        <span className="marker-square mt-2" />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
               </Reveal>
             ))}
           </div>
         </div>
+
+        <Reveal delay={0.1} className="mt-24 flex justify-center">
+          <a
+            href="#work"
+            className="group flex items-center gap-6 brutalist-border bg-foreground px-12 py-6 font-display text-2xl font-black uppercase text-background transition-colors hover:bg-background hover:text-foreground"
+          >
+            Next: View Work
+            <ArrowRight
+              size={32}
+              className="transition-transform group-hover:translate-x-2"
+            />
+          </a>
+        </Reveal>
       </div>
     </section>
   );

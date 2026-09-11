@@ -22,7 +22,7 @@ export default function HeroPortrait() {
   });
   const exitScale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
   const exitOpacity = useTransform(scrollYProgress, [0, 0.75, 1], [1, 1, 0.15]);
-  const exitRotate = useTransform(scrollYProgress, [0, 1], [0, -10]);
+  const exitRotate = useTransform(scrollYProgress, [0, 1], [0, -6]);
   const exitY = useTransform(scrollYProgress, [0, 1], [0, -60]);
 
   // mouse-driven tilt + spotlight sheen
@@ -31,13 +31,11 @@ export default function HeroPortrait() {
   const springX = useSpring(mvX, { stiffness: 150, damping: 20, mass: 0.5 });
   const springY = useSpring(mvY, { stiffness: 150, damping: 20, mass: 0.5 });
 
-  const rotateX = useTransform(springY, [0, 1], [10, -10]);
-  const rotateY = useTransform(springX, [0, 1], [-10, 10]);
+  const rotateX = useTransform(springY, [0, 1], [8, -8]);
+  const rotateY = useTransform(springX, [0, 1], [-8, 8]);
   const glowX = useTransform(springX, (v) => `${v * 100}%`);
   const glowY = useTransform(springY, (v) => `${v * 100}%`);
-  const spotlight = useMotionTemplate`radial-gradient(220px circle at ${glowX} ${glowY}, rgba(255,255,255,0.35), transparent 70%)`;
-  const parallaxX = useTransform(springX, [0, 1], [-16, 16]);
-  const parallaxY = useTransform(springY, [0, 1], [-16, 16]);
+  const spotlight = useMotionTemplate`radial-gradient(220px circle at ${glowX} ${glowY}, rgba(255,255,255,0.4), transparent 70%)`;
 
   const handleMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const el = tiltRef.current;
@@ -58,7 +56,7 @@ export default function HeroPortrait() {
       initial={{ opacity: 0, y: 30, scale: 0.96 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      className="relative mx-auto w-full max-w-[22rem]"
+      className="relative mx-auto w-full max-w-md"
     >
       <motion.div
         style={{
@@ -68,19 +66,13 @@ export default function HeroPortrait() {
           y: exitY,
           perspective: 1000,
         }}
-        className="relative"
+        className="relative brutalist-border btn-shadow bg-background p-4"
       >
-        <motion.div
-          aria-hidden
-          className="absolute -inset-10 -z-10 rounded-[3rem] bg-gradient-to-br from-accent/30 via-accent-2/20 to-transparent blur-3xl"
-          style={{ x: parallaxX, y: parallaxY }}
-        />
-
         <div
           ref={tiltRef}
           onMouseMove={handleMove}
           onMouseLeave={handleLeave}
-          className="group relative aspect-square w-full overflow-hidden rounded-[2rem] border border-border-strong"
+          className="group relative aspect-[4/5] w-full overflow-hidden brutalist-border bg-foreground"
         >
           <motion.div
             style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
@@ -91,16 +83,21 @@ export default function HeroPortrait() {
               alt="Portrait of James J Koduppanapolackal"
               fill
               priority
-              sizes="(min-width: 1024px) 352px, 320px"
-              className="object-cover"
+              sizes="(min-width: 1024px) 400px, 360px"
+              className="object-cover grayscale contrast-150 brightness-75"
             />
+            <div className="pointer-events-none absolute inset-0 bg-foreground mix-blend-multiply opacity-20" />
             <motion.div
               aria-hidden
               className="pointer-events-none absolute inset-0 opacity-0 mix-blend-soft-light transition-opacity duration-300 group-hover:opacity-100"
               style={{ background: spotlight }}
             />
           </motion.div>
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-background/80 to-transparent" />
+        </div>
+
+        <div className="mt-4 flex items-center justify-between font-mono text-[10px] font-bold uppercase text-foreground">
+          <span>Software Engineer</span>
+          <span>Portrait_Still.jpg</span>
         </div>
       </motion.div>
     </motion.div>

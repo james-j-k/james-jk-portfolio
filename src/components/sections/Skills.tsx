@@ -66,47 +66,42 @@ const CERTIFICATIONS = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative py-28 md:py-36">
-      <div className="mx-auto max-w-6xl px-6 md:px-10">
+    <section id="skills" className="relative bg-grid-brutalist py-28 md:py-36">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
         <Reveal>
-          <p className="font-mono text-xs uppercase tracking-[0.25em] text-accent-2">
+          <span className="inline-block bg-foreground px-3 py-1 font-mono text-xs font-bold uppercase tracking-widest text-background">
             Skills & Certifications
-          </p>
-          <h2 className="font-display mt-4 max-w-xl text-3xl font-medium text-foreground sm:text-4xl">
+          </span>
+          <h2 className="font-display mt-4 text-5xl font-black uppercase leading-none tracking-tighter text-foreground md:text-7xl">
             The toolkit behind the work.
           </h2>
         </Reveal>
       </div>
 
-      <div className="relative mt-14 overflow-hidden border-y border-border py-6">
-        <div className="flex w-max animate-marquee gap-10">
+      <div className="mt-14 overflow-hidden border-y-8 border-foreground bg-foreground py-8">
+        <div className="flex w-max animate-marquee gap-12">
           {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
             <span
               key={`${item}-${i}`}
-              className="font-display whitespace-nowrap text-3xl font-medium text-foreground-subtle md:text-4xl"
+              className="font-display whitespace-nowrap text-7xl font-black uppercase text-background md:text-9xl"
             >
               {item}
-              <span className="ml-10 text-accent">/</span>
             </span>
           ))}
         </div>
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent" />
       </div>
 
-      <div className="mx-auto mt-16 max-w-6xl px-6 md:px-10">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto mt-20 max-w-7xl px-6 md:px-10">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {SKILL_GROUPS.map((group, i) => (
             <Reveal key={group.title} delay={i * 0.08}>
-              <div className="rounded-2xl border border-border p-6">
-                <h3 className="font-mono text-xs uppercase tracking-widest text-accent">
+              <div className="brutalist-border card-shadow h-full bg-background p-8 transition-transform duration-75 hover:-translate-x-1 hover:-translate-y-1">
+                <h3 className="brutalist-border-b mb-6 pb-2 font-display text-xl font-black uppercase text-foreground">
                   {group.title}
                 </h3>
-                <ul className="mt-4 flex flex-col gap-2">
+                <ul className="space-y-3 font-mono text-sm font-bold uppercase text-foreground">
                   {group.items.map((item) => (
-                    <li key={item} className="text-sm text-foreground-muted">
-                      {item}
-                    </li>
+                    <li key={item}>{item}</li>
                   ))}
                 </ul>
               </div>
@@ -114,25 +109,32 @@ export default function Skills() {
           ))}
         </div>
 
-        <Reveal delay={0.1} className="mt-16">
-          <h3 className="font-mono text-xs uppercase tracking-widest text-foreground-subtle">
+        <Reveal delay={0.1} className="mt-24">
+          <h3 className="font-display mb-8 text-3xl font-black uppercase text-foreground">
             Certifications
           </h3>
-          <div className="mt-6 grid gap-3 sm:grid-cols-2">
-            {CERTIFICATIONS.map((cert) => (
+          <div className="brutalist-border card-shadow overflow-hidden bg-background">
+            <div className="hidden grid-cols-12 brutalist-border-b bg-foreground p-4 font-mono text-xs font-bold uppercase text-background md:grid">
+              <div className="col-span-6">Certification Name</div>
+              <div className="col-span-4">Issuing Organization</div>
+              <div className="col-span-2 text-right">Year</div>
+            </div>
+            {CERTIFICATIONS.map((cert, i) => (
               <div
                 key={cert.name}
-                className="flex items-start justify-between gap-4 rounded-xl border border-border px-5 py-4"
+                className={`grid grid-cols-1 gap-2 p-6 hover:bg-background-elevated md:grid-cols-12 md:gap-0 ${
+                  i < CERTIFICATIONS.length - 1 ? "brutalist-border-b" : ""
+                }`}
               >
-                <div>
-                  <p className="text-sm text-foreground">{cert.name}</p>
-                  <p className="mt-1 text-xs text-foreground-subtle">
-                    {cert.org}
-                  </p>
+                <div className="font-display font-black uppercase text-foreground md:col-span-6 md:text-lg">
+                  {cert.name}
                 </div>
-                <span className="shrink-0 font-mono text-xs text-foreground-subtle">
+                <div className="font-mono text-sm font-bold text-foreground md:col-span-4">
+                  {cert.org}
+                </div>
+                <div className="font-mono text-sm font-bold text-foreground md:col-span-2 md:text-right">
                   {cert.year}
-                </span>
+                </div>
               </div>
             ))}
           </div>

@@ -1,16 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #06070c;
-  --background-elevated: #0c0e17;
-  --foreground: #f4f5fa;
-  --foreground-muted: #9aa0b4;
-  --foreground-subtle: #5c6178;
-  --accent: #8b5cf6;
-  --accent-2: #22d3ee;
-  --accent-warm: #ff8a5c;
-  --border: rgba(244, 245, 250, 0.08);
-  --border-strong: rgba(244, 245, 250, 0.16);
+  --background: #ffffff;
+  --background-elevated: #f5f5f5;
+  --foreground: #000000;
+  --foreground-muted: #525252;
+  --foreground-subtle: #a3a3a3;
+  --border: #000000;
+  --border-strong: #000000;
 }
 
 @theme inline {
@@ -19,57 +16,85 @@
   --color-foreground: var(--foreground);
   --color-foreground-muted: var(--foreground-muted);
   --color-foreground-subtle: var(--foreground-subtle);
-  --color-accent: var(--accent);
-  --color-accent-2: var(--accent-2);
-  --color-accent-warm: var(--accent-warm);
   --color-border: var(--border);
   --color-border-strong: var(--border-strong);
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-space-grotesk);
+  --font-sans: var(--font-jetbrains-mono);
+  --font-display: var(--font-archivo);
   --font-mono: var(--font-jetbrains-mono);
 }
 
 html {
-  color-scheme: dark;
+  color-scheme: light;
   scroll-behavior: auto;
+  background: var(--background);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), monospace;
 }
 
 ::selection {
-  background: var(--accent);
-  color: #fff;
+  background: var(--foreground);
+  color: var(--background);
 }
 
-.text-gradient {
-  background: linear-gradient(100deg, var(--accent) 0%, var(--accent-2) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
+.brutalist-border {
+  border: 3px solid var(--foreground);
+}
+.brutalist-border-b {
+  border-bottom: 3px solid var(--foreground);
+}
+.brutalist-border-t {
+  border-top: 3px solid var(--foreground);
+}
+.brutalist-border-l {
+  border-left: 3px solid var(--foreground);
+}
+.brutalist-border-r {
+  border-right: 3px solid var(--foreground);
+}
+
+.btn-shadow {
+  box-shadow: 6px 6px 0 0 rgba(0, 0, 0, 1);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.btn-shadow:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 0 rgba(0, 0, 0, 1);
+}
+.btn-shadow:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+}
+
+.card-shadow {
+  box-shadow: 8px 8px 0 0 rgba(0, 0, 0, 1);
+}
+
+.feature-shadow {
+  box-shadow: 12px 12px 0 0 rgba(0, 0, 0, 1);
+}
+
+.headline-stroke {
+  -webkit-text-stroke: 1.5px var(--foreground);
   color: transparent;
 }
 
-.bg-grid {
+.marker-square {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: var(--foreground);
+  flex-shrink: 0;
+}
+
+.bg-grid-brutalist {
   background-image:
-    linear-gradient(to right, var(--border) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
-  background-size: 64px 64px;
-}
-
-.noise {
-  position: relative;
-}
-
-.noise::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.035;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    linear-gradient(to right, #e5e5e5 1px, transparent 1px),
+    linear-gradient(to bottom, #e5e5e5 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -103,6 +128,5 @@ body {
   background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--border-strong);
-  border-radius: 999px;
+  background: var(--foreground);
 }

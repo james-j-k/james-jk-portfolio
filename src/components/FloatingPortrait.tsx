@@ -79,16 +79,15 @@ export default function FloatingPortrait() {
             x: springShift,
             transformStyle: "preserve-3d",
           }}
-          className="group relative block h-16 w-16 overflow-hidden rounded-2xl border border-border-strong shadow-[0_8px_30px_rgba(0,0,0,0.55)] transition-transform hover:scale-110 lg:h-20 lg:w-20"
+          className="group relative block h-16 w-16 overflow-hidden brutalist-border bg-background btn-shadow transition-transform hover:scale-105 lg:h-20 lg:w-20"
         >
           <Image
             src="/images/hero-portrait.png"
             alt="Back to top"
             fill
             sizes="80px"
-            className="object-cover"
+            className="object-cover grayscale contrast-150 brightness-75"
           />
-          <span className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10" />
         </motion.button>
       </motion.div>
     </motion.div>
