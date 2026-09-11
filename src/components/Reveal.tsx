@@ -18,7 +18,7 @@ export default function Reveal({
   className,
   as = "div",
 }: {
-  children: ReactNode;
+  children?: ReactNode;
   delay?: number;
   className?: string;
   as?: "div" | "span" | "li";
