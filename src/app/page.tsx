@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import FloatingPortrait from "@/components/FloatingPortrait";
+import SnakeEasterEgg from "@/components/SnakeEasterEgg";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Experience from "@/components/sections/Experience";
@@ -12,6 +13,7 @@ export default function Home() {
     <>
       <Navbar />
       <FloatingPortrait />
+      <SnakeEasterEgg />
       <main className="flex-1">
         <Hero />
         <About />
