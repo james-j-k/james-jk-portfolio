@@ -15,7 +15,12 @@ export default function SmoothScrollProvider({
     const prefersReduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
-    if (prefersReduced) return;
+    // Touch devices (phones/tablets) already have excellent native
+    // momentum scroll. Lenis intercepting scroll/touch on top of that is
+    // what was fighting Safari's own pinch-zoom and scroll handling on
+    // iOS, so skip it entirely there and let native scrolling take over.
+    const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
+    if (prefersReduced || isCoarsePointer) return;
 
     const { gsap, ScrollTrigger } = getGsap();
 

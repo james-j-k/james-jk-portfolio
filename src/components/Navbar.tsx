@@ -29,7 +29,7 @@ export default function Navbar() {
   }, [menuOpen]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-background brutalist-border-b">
+    <header className="gpu-fixed fixed inset-x-0 top-0 z-50 bg-background brutalist-border-b">
       <motion.div
         className="absolute bottom-0 left-0 h-1 bg-foreground origin-left"
         style={{ scaleX: progress, right: 0 }}

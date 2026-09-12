@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Archivo, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
@@ -22,6 +22,12 @@ export const metadata: Metadata = {
     "Software engineer building AI-assisted backend systems, RAG pipelines, and full-stack applications.",
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
@@ -32,7 +38,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
         <div
           aria-hidden
-          className="pointer-events-none fixed inset-x-0 bottom-0 z-50 h-4 bg-foreground"
+          className="gpu-fixed pointer-events-none fixed inset-x-0 bottom-0 z-50 h-4 bg-foreground"
         />
       </body>
     </html>

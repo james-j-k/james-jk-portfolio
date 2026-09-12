@@ -27,12 +27,24 @@ html {
   color-scheme: light;
   scroll-behavior: auto;
   background: var(--background);
+  overflow-x: hidden;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), monospace;
+  overflow-x: hidden;
+  overscroll-behavior-y: none;
+}
+
+/* Mitigates Safari/iOS jitter on position:fixed elements during
+   pinch-zoom by promoting them to their own GPU layer. */
+.gpu-fixed {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 ::selection {
