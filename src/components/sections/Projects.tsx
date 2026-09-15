@@ -13,17 +13,45 @@ type CaseStudy = {
   impact: string;
   ieeeUrl?: string;
   repoUrl?: string;
+  liveUrl?: string;
   internalOnly?: boolean;
   featured?: boolean;
   inDevelopment?: boolean;
+  isLive?: boolean;
 };
 
 const CASE_STUDIES: CaseStudy[] = [
   {
+    tag: "Founder & Builder // It's Olam Company",
+    title: "It's Olam Company — Mollywood Trivia Nights",
+    period: "Live in Production",
+    featured: true,
+    isLive: true,
+    liveUrl: "https://itsolamco.in",
+    problem:
+      "Kochi's bar and restobar scene had no niche, hyper-local trivia experience built around Malayalam cinema — and running quiz nights end-to-end meant no booking system, no venue-partner pipeline, and no way to manage events beyond spreadsheets and DMs.",
+    approach: [
+      "Founder-led build end-to-end: a public marketing site (event listings, an interactive Mollywood trivia teaser, RSVP and venue-partnership flows, scroll-triggered animations) plus a full auth-protected admin dashboard for managing events, bookings, venue inquiries, and quiz rounds.",
+      "Next.js 16 (App Router), React 19, and TypeScript on the frontend, with Prisma ORM over a serverless Neon Postgres database and Resend for transactional email on a custom, DKIM/SPF-verified sending domain.",
+      "Shipped real production infrastructure — migrated the dev database from SQLite to Neon Postgres, generated and rotated production secrets, verified the email domain, deployed to Vercel, and connected a purchased domain through GoDaddy DNS.",
+      "Handled a mid-project rebrand (new name, new domain) with a full site-wide copy/asset update, including a custom Python/Pillow image-processing pipeline — alpha decontamination and connected-component glyph isolation — to generate the logo, favicon, and OG images from scratch.",
+    ],
+    stack: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "Resend",
+      "Vercel",
+    ],
+    impact:
+      "Live in production at itsolamco.in — real customers, a working admin panel, and a verified custom email domain.",
+  },
+  {
     tag: "Independent Product // RBAC Platform",
     title: "Jubilee OS — Delivery & Field-Ops Platform",
     period: "In Development",
-    featured: true,
     inDevelopment: true,
     problem:
       "A local LPG distributor's office staff were hand-copying delivery confirmation codes from paper into logbooks — illegible handwriting caused mismatched entries and delivery disputes across a 15,000+ customer base.",
@@ -129,6 +157,12 @@ export default function Projects() {
                       In Development
                     </div>
                   )}
+                  {project.isLive && (
+                    <div className="flex items-center gap-2 brutalist-border bg-foreground px-2 py-0.5 font-mono text-[9px] font-bold uppercase text-background">
+                      <span className="h-2 w-2 animate-pulse bg-background" />
+                      Live
+                    </div>
+                  )}
                 </div>
                 <h3 className="font-display mb-6 text-2xl font-black uppercase tracking-tighter text-foreground sm:text-3xl md:text-4xl">
                   {project.title}
@@ -153,7 +187,17 @@ export default function Projects() {
                       ))}
                     </div>
 
-                    {project.ieeeUrl ? (
+                    {project.liveUrl ? (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase text-foreground underline decoration-2 hover:text-foreground-muted"
+                      >
+                        Visit itsolamco.in
+                        <ArrowUpRight size={16} />
+                      </a>
+                    ) : project.ieeeUrl ? (
                       <a
                         href={project.ieeeUrl}
                         target="_blank"
