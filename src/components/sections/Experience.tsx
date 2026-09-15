@@ -122,7 +122,7 @@ export default function Experience() {
                             alt={job.company}
                             width={2000}
                             height={1042}
-                            className="h-10 w-auto sm:h-12"
+                            className="h-16 w-auto sm:h-20"
                           />
                         </a>
                       ) : (

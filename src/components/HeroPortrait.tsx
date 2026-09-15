@@ -279,13 +279,15 @@ export default function HeroPortrait() {
               className="shrink-0 text-foreground-subtle transition-transform group-hover/olam:translate-x-0.5 group-hover/olam:-translate-y-0.5"
             />
           </div>
-          <Image
-            src="/images/olam-logo.png"
-            alt="It's Olam Company"
-            width={2000}
-            height={1042}
-            className="mt-3 h-16 w-auto sm:h-20 md:h-24"
-          />
+          <div className="mt-3 flex justify-center">
+            <Image
+              src="/images/olam-logo.png"
+              alt="It's Olam Company"
+              width={2000}
+              height={1042}
+              className="h-20 w-auto sm:h-24 md:h-28"
+            />
+          </div>
         </a>
       </motion.div>
     </motion.div>

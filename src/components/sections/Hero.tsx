@@ -76,23 +76,25 @@ export default function Hero() {
             <p className="text-lg font-bold leading-tight text-foreground sm:text-xl">
               I design, prompt, and ship backend systems, RAG pipelines, and
               full-stack apps — using Claude and Codex as real engineering
-              partners. Currently building at Fission Labs, and founder of{" "}
-              <a
-                href="https://itsolamco.in"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex translate-y-1 items-center transition-opacity hover:opacity-60"
-              >
-                <Image
-                  src="/images/olam-logo.png"
-                  alt="It's Olam Company"
-                  width={2000}
-                  height={1042}
-                  className="inline-block h-5 w-auto sm:h-6"
-                />
-              </a>
-              .
+              partners. Currently building at Fission Labs.
             </p>
+            <a
+              href="https://itsolamco.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group/olaminline mt-5 inline-flex items-center gap-3 transition-opacity hover:opacity-70"
+            >
+              <span className="font-mono text-xs font-bold uppercase tracking-widest text-foreground-subtle">
+                Founder of
+              </span>
+              <Image
+                src="/images/olam-logo.png"
+                alt="It's Olam Company"
+                width={2000}
+                height={1042}
+                className="h-8 w-auto sm:h-10"
+              />
+            </a>
           </motion.div>
 
           <motion.div
