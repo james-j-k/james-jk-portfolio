@@ -89,10 +89,15 @@ export default function HeroPortrait() {
     let height = 0;
 
     const resize = () => {
-      const rect = container.getBoundingClientRect();
+      // offsetWidth/Height reflect the element's own layout box and are
+      // unaffected by ancestor CSS transforms (the hero portrait's mount
+      // scale animation), unlike getBoundingClientRect(). Using the rect
+      // here previously locked the canvas to a slightly-too-small size
+      // captured mid-animation, since a transform-only change never fires
+      // ResizeObserver to correct it.
       const dpr = window.devicePixelRatio || 1;
-      width = rect.width;
-      height = rect.height;
+      width = container.offsetWidth;
+      height = container.offsetHeight;
       canvas.width = maskCanvas.width = width * dpr;
       canvas.height = maskCanvas.height = height * dpr;
       canvas.style.width = maskCanvas.style.width = `${width}px`;
@@ -101,6 +106,9 @@ export default function HeroPortrait() {
       maskCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
     resize();
+    // Defensive re-measure once the entrance animation (0.9s, 0.5s delay)
+    // has fully settled, in case anything else shifted layout meanwhile.
+    const settleTimer = setTimeout(resize, 1600);
     const ro = new ResizeObserver(resize);
     ro.observe(container);
 
@@ -183,6 +191,7 @@ export default function HeroPortrait() {
     container.addEventListener("pointermove", handlePointerMove);
     return () => {
       container.removeEventListener("pointermove", handlePointerMove);
+      clearTimeout(settleTimer);
       ro.disconnect();
       cancelAnimationFrame(raf);
     };
@@ -268,24 +277,24 @@ export default function HeroPortrait() {
           href="https://itsolamco.in"
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-shadow group/olam mt-4 block brutalist-border bg-background px-5 py-4 transition-colors hover:bg-background-elevated sm:px-6 sm:py-5"
+          className="btn-shadow group/olam mt-4 block brutalist-border bg-background px-4 py-3 transition-colors hover:bg-background-elevated sm:px-5 sm:py-3.5"
         >
           <div className="flex items-center justify-between">
             <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-foreground-subtle">
               Founder of
             </span>
             <ArrowUpRight
-              size={16}
+              size={14}
               className="shrink-0 text-foreground-subtle transition-transform group-hover/olam:translate-x-0.5 group-hover/olam:-translate-y-0.5"
             />
           </div>
-          <div className="mt-3 flex justify-center">
+          <div className="mt-2 flex justify-center">
             <Image
               src="/images/olam-logo.png"
               alt="It's Olam Company"
               width={2000}
               height={1042}
-              className="h-20 w-auto sm:h-24 md:h-28"
+              className="h-10 w-auto sm:h-12"
             />
           </div>
         </a>
