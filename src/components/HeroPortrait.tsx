@@ -268,10 +268,26 @@ export default function HeroPortrait() {
           href="https://itsolamco.in"
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-shadow mt-3 flex items-center justify-center gap-2 brutalist-border bg-background px-3 py-2 font-mono text-[10px] font-bold uppercase text-foreground transition-colors hover:bg-foreground hover:text-background"
+          className="btn-shadow group/olam mt-3 flex items-center justify-between gap-3 brutalist-border bg-background px-4 py-3 transition-colors hover:bg-background-elevated"
         >
-          Founder — It&apos;s Olam Company
-          <ArrowUpRight size={12} />
+          <div className="flex items-center gap-3">
+            <span className="font-mono text-[9px] font-bold uppercase leading-tight text-foreground-subtle">
+              Founder
+              <br />
+              of
+            </span>
+            <Image
+              src="/images/olam-logo.png"
+              alt="It's Olam Company"
+              width={2000}
+              height={1042}
+              className="h-7 w-auto"
+            />
+          </div>
+          <ArrowUpRight
+            size={14}
+            className="shrink-0 text-foreground-subtle transition-transform group-hover/olam:translate-x-0.5 group-hover/olam:-translate-y-0.5"
+          />
         </a>
       </motion.div>
     </motion.div>
