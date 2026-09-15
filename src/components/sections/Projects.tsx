@@ -22,10 +22,35 @@ type CaseStudy = {
 
 const CASE_STUDIES: CaseStudy[] = [
   {
+    tag: "Independent Product // RBAC Platform",
+    title: "Jubilee OS — Delivery & Field-Ops Platform",
+    period: "In Development",
+    featured: true,
+    inDevelopment: true,
+    problem:
+      "A local LPG distributor's office staff were hand-copying delivery confirmation codes from paper into logbooks — illegible handwriting caused mismatched entries and delivery disputes across a 15,000+ customer base.",
+    approach: [
+      "Android app (Kotlin, Jetpack Compose) lets delivery executives look up a customer by number and see only what they need — name, phone, active booking status — sourced from office-uploaded Excel registries.",
+      "A two-tier RBAC data model keeps sensitive customer PII (KYC, ration card, Aadhaar) structurally separate from field-facing data, enforced by Firestore security rules rather than hidden in the UI.",
+      "TypeScript Firebase Cloud Functions handle server-side Excel ingestion and RBAC-gated batch writes, with shared TypeScript types keeping the Cloud Functions backend and React dashboard contract-safe end to end.",
+      "An offline-first submission queue lets delivery staff save confirmation codes without signal, auto-syncing with idempotent writes once connectivity returns — plus a white-label, multi-tenant template (one Firebase project per client) so the platform can be resold to other businesses.",
+    ],
+    stack: [
+      "Kotlin",
+      "Jetpack Compose",
+      "TypeScript",
+      "React",
+      "Firebase Cloud Functions",
+      "Firestore",
+      "GitHub Actions",
+    ],
+    impact:
+      "Architecture and RBAC data model finalized; actively in development.",
+  },
+  {
     tag: "Founder & Builder // It's Olam Company",
     title: "It's Olam Company — Mollywood Trivia Nights",
     period: "Live in Production",
-    featured: true,
     isLive: true,
     liveUrl: "https://itsolamco.in",
     problem:
@@ -47,31 +72,6 @@ const CASE_STUDIES: CaseStudy[] = [
     ],
     impact:
       "Live in production at itsolamco.in — real customers, a working admin panel, and a verified custom email domain.",
-  },
-  {
-    tag: "Independent Product // RBAC Platform",
-    title: "Jubilee OS — Delivery & Field-Ops Platform",
-    period: "In Development",
-    inDevelopment: true,
-    problem:
-      "A local LPG distributor's office staff were hand-copying delivery confirmation codes from paper into logbooks — illegible handwriting caused mismatched entries and delivery disputes across a 15,000+ customer base.",
-    approach: [
-      "Android app (Kotlin, Jetpack Compose) lets delivery executives look up a customer by number and see only what they need — name, phone, active booking status — sourced from office-uploaded Excel registries.",
-      "A two-tier RBAC data model keeps sensitive customer PII (KYC, ration card, Aadhaar) structurally separate from field-facing data, enforced by Firestore security rules rather than hidden in the UI.",
-      "TypeScript Firebase Cloud Functions handle server-side Excel ingestion and RBAC-gated batch writes, with shared TypeScript types keeping the Cloud Functions backend and React dashboard contract-safe end to end.",
-      "An offline-first submission queue lets delivery staff save confirmation codes without signal, auto-syncing with idempotent writes once connectivity returns — plus a white-label, multi-tenant template (one Firebase project per client) so the platform can be resold to other businesses.",
-    ],
-    stack: [
-      "Kotlin",
-      "Jetpack Compose",
-      "TypeScript",
-      "React",
-      "Firebase Cloud Functions",
-      "Firestore",
-      "GitHub Actions",
-    ],
-    impact:
-      "Architecture and RBAC data model finalized; actively in development.",
   },
   {
     tag: "IEEE Paper // INCIP 2025",

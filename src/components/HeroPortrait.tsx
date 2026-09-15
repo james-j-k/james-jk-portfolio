@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 import {
   motion,
   useMotionTemplate,
@@ -262,6 +263,16 @@ export default function HeroPortrait() {
           <span>Software Engineer</span>
           <span>Portrait_Still.jpg</span>
         </div>
+
+        <a
+          href="https://itsolamco.in"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-shadow mt-3 flex items-center justify-center gap-2 brutalist-border bg-background px-3 py-2 font-mono text-[10px] font-bold uppercase text-foreground transition-colors hover:bg-foreground hover:text-background"
+        >
+          Founder — It&apos;s Olam Company
+          <ArrowUpRight size={12} />
+        </a>
       </motion.div>
     </motion.div>
   );
