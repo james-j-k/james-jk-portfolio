@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import HeroPortrait from "@/components/HeroPortrait";
@@ -75,7 +76,22 @@ export default function Hero() {
             <p className="text-lg font-bold leading-tight text-foreground sm:text-xl">
               I design, prompt, and ship backend systems, RAG pipelines, and
               full-stack apps — using Claude and Codex as real engineering
-              partners. Currently building at Fission Labs.
+              partners. Currently building at Fission Labs, and founder of{" "}
+              <a
+                href="https://itsolamco.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex translate-y-1 items-center transition-opacity hover:opacity-60"
+              >
+                <Image
+                  src="/images/olam-logo.png"
+                  alt="It's Olam Company"
+                  width={2000}
+                  height={1042}
+                  className="inline-block h-5 w-auto sm:h-6"
+                />
+              </a>
+              .
             </p>
           </motion.div>
 
@@ -100,34 +116,34 @@ export default function Hero() {
               Get in touch
             </a>
           </motion.div>
+
+          <motion.a
+            href="#about"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 1.4 }}
+            className="mt-12 inline-flex items-center gap-3 text-foreground"
+            aria-label="Scroll to about section"
+          >
+            <span className="brutalist-border bg-background px-2 py-1 font-mono text-[10px] font-black uppercase tracking-[0.2em]">
+              Scroll down
+            </span>
+            <motion.span
+              animate={{ y: [0, 6, 0] }}
+              transition={{
+                duration: 1,
+                repeat: Infinity,
+                ease: "easeInOut",
+                times: [0, 0.5, 1],
+              }}
+            >
+              <ArrowDown size={18} />
+            </motion.span>
+          </motion.a>
         </div>
 
         <HeroPortrait />
       </div>
-
-      <motion.a
-        href="#about"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1.4 }}
-        className="absolute bottom-12 left-1/2 flex -translate-x-1/2 flex-col items-center gap-4 text-foreground"
-        aria-label="Scroll to about section"
-      >
-        <span className="brutalist-border bg-background px-2 font-mono text-xs font-black uppercase tracking-[0.2em]">
-          Scroll down
-        </span>
-        <motion.span
-          animate={{ y: [0, 10, 0] }}
-          transition={{
-            duration: 1,
-            repeat: Infinity,
-            ease: "easeInOut",
-            times: [0, 0.5, 1],
-          }}
-        >
-          <ArrowDown size={28} />
-        </motion.span>
-      </motion.a>
     </section>
   );
 }

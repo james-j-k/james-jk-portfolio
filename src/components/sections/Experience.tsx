@@ -1,11 +1,23 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { Code2, Smartphone, ArrowRight } from "lucide-react";
+import { Code2, Rocket, Smartphone, ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import { getGsap } from "@/lib/gsap";
 
 const EXPERIENCE = [
+  {
+    company: "It's Olam Company",
+    role: "Founder",
+    period: "Live in Production",
+    location: "Kochi, Kerala",
+    icon: Rocket,
+    points: [
+      "Founded and built a full-stack Next.js 16 platform for Malayalam-cinema (Mollywood) trivia nights in Kochi's bars and restobars — a public booking site plus an auth-protected admin dashboard for events, bookings, and venue partnerships.",
+      "Shipped real production infrastructure: Prisma over a serverless Neon Postgres database, a custom DKIM/SPF-verified email domain via Resend, and deployment to Vercel on a purchased domain (itsolamco.in).",
+      "Handled a mid-project rebrand end-to-end and built a custom Python/Pillow image-processing pipeline to generate the brand's logo, favicon, and OG images from scratch.",
+    ],
+  },
   {
     company: "Fission Labs",
     role: "Software Engineering Intern",
