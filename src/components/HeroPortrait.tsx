@@ -268,25 +268,23 @@ export default function HeroPortrait() {
           href="https://itsolamco.in"
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-shadow group/olam mt-4 flex items-center justify-between gap-3 brutalist-border bg-background px-5 py-4 transition-colors hover:bg-background-elevated"
+          className="btn-shadow group/olam mt-4 block brutalist-border bg-background px-5 py-4 transition-colors hover:bg-background-elevated sm:px-6 sm:py-5"
         >
-          <div className="flex items-center gap-4">
-            <span className="font-mono text-[10px] font-bold uppercase leading-tight text-foreground-subtle">
-              Founder
-              <br />
-              of
+          <div className="flex items-center justify-between">
+            <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-foreground-subtle">
+              Founder of
             </span>
-            <Image
-              src="/images/olam-logo.png"
-              alt="It's Olam Company"
-              width={2000}
-              height={1042}
-              className="h-10 w-auto sm:h-12"
+            <ArrowUpRight
+              size={16}
+              className="shrink-0 text-foreground-subtle transition-transform group-hover/olam:translate-x-0.5 group-hover/olam:-translate-y-0.5"
             />
           </div>
-          <ArrowUpRight
-            size={18}
-            className="shrink-0 text-foreground-subtle transition-transform group-hover/olam:translate-x-0.5 group-hover/olam:-translate-y-0.5"
+          <Image
+            src="/images/olam-logo.png"
+            alt="It's Olam Company"
+            width={2000}
+            height={1042}
+            className="mt-3 h-16 w-auto sm:h-20 md:h-24"
           />
         </a>
       </motion.div>

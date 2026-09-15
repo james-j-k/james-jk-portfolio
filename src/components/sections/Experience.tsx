@@ -115,14 +115,14 @@ export default function Experience() {
                           href={job.companyLogo.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="mt-2 inline-flex items-center gap-1.5 transition-opacity hover:opacity-70"
+                          className="mt-3 inline-flex items-center gap-1.5 transition-opacity hover:opacity-70"
                         >
                           <Image
                             src={job.companyLogo.src}
                             alt={job.company}
                             width={2000}
                             height={1042}
-                            className="h-6 w-auto sm:h-7"
+                            className="h-10 w-auto sm:h-12"
                           />
                         </a>
                       ) : (
