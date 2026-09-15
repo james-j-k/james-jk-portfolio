@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { Code2, Rocket, Smartphone, ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import { getGsap } from "@/lib/gsap";
@@ -8,14 +9,15 @@ import { getGsap } from "@/lib/gsap";
 const EXPERIENCE = [
   {
     company: "It's Olam Company",
+    companyLogo: { src: "/images/olam-logo.png", href: "https://itsolamco.in" },
     role: "Founder",
     period: "Live in Production",
     location: "Kochi, Kerala",
     icon: Rocket,
     points: [
-      "Founded and built a full-stack Next.js 16 platform for Malayalam-cinema (Mollywood) trivia nights in Kochi's bars and restobars — a public booking site plus an auth-protected admin dashboard for events, bookings, and venue partnerships.",
-      "Shipped real production infrastructure: Prisma over a serverless Neon Postgres database, a custom DKIM/SPF-verified email domain via Resend, and deployment to Vercel on a purchased domain (itsolamco.in).",
-      "Handled a mid-project rebrand end-to-end and built a custom Python/Pillow image-processing pipeline to generate the brand's logo, favicon, and OG images from scratch.",
+      "It's Olam Company is a hyper-local trivia brand I founded — live Malayalam-cinema (Mollywood) pop-culture quiz nights hosted in Kochi's bars and restobars, for fans who know their 90s Mohanlal trivia by heart.",
+      "Built and run the whole thing end-to-end: a public site for events and team RSVPs, a venue-partnership pipeline for bars that want to host a night, and an admin dashboard to manage events, bookings, and quiz rounds.",
+      "Live in production at itsolamco.in, backed by real infrastructure — a production database, a verified custom email domain, and a brand identity I designed and built myself, down to the logo.",
     ],
   },
   {
@@ -108,9 +110,26 @@ export default function Experience() {
                       <h3 className="font-display text-2xl font-black uppercase tracking-tight text-foreground sm:text-3xl">
                         {job.role}
                       </h3>
-                      <p className="mt-2 font-mono text-lg font-bold text-foreground sm:text-xl">
-                        {job.company}
-                      </p>
+                      {job.companyLogo ? (
+                        <a
+                          href={job.companyLogo.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-2 inline-flex items-center gap-1.5 transition-opacity hover:opacity-70"
+                        >
+                          <Image
+                            src={job.companyLogo.src}
+                            alt={job.company}
+                            width={2000}
+                            height={1042}
+                            className="h-6 w-auto sm:h-7"
+                          />
+                        </a>
+                      ) : (
+                        <p className="mt-2 font-mono text-lg font-bold text-foreground sm:text-xl">
+                          {job.company}
+                        </p>
+                      )}
                     </div>
                     <div className="flex flex-col items-start gap-2 md:items-end">
                       <span className="bg-foreground px-3 py-1 font-mono text-xs font-bold uppercase tracking-tighter text-background">
